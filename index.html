@@ -318,5 +318,44 @@
             There’s even a world record for the largest pickle jar—over 1,000 gallons of pickles. Yeah, we’re not
             kidding. This is a big deal.</p>
     </div>
+
+    <script>
+    function animateTitle(elementId, fullText, speed = 100) {
+      const element = document.getElementById(elementId);
+      let currentText = "";
+      let index = 0;
+      let deleting = false;
+    
+      function type() {
+        if (!deleting) {
+          if (index < fullText.length) {
+            currentText += fullText.charAt(index);
+            element.innerHTML = currentText;
+            index++;
+            setTimeout(type, speed);
+          } else {
+            deleting = true;
+            setTimeout(type, speed);
+          }
+        } else {
+          if (index > 0) {
+            currentText = currentText.slice(0, -1);
+            element.innerHTML = currentText;
+            index--;
+            setTimeout(type, speed);
+          } else {
+            deleting = false;
+            index = 0;
+            setTimeout(type, speed);
+          }
+        }
+      }
+    
+      type();
+    }
+    
+    animateTitle('mainTitle', 'WE love Pickles!', 100);
+    </script>
 </body>
 </html>
+
