@@ -327,14 +327,14 @@
     function type() {
         document.title = title.substring(0, index) || '\u200B';
     
-        var speed = isDeleting ? 100 : 200;
+        var speed = isDeleting ? 50 : 100;
     
         if (!isDeleting && index === title.length) {
             isDeleting = true;
-            speed = 1500;
+            speed = 100;
         } else if (isDeleting && index === 0) {
             isDeleting = false;
-            speed = 500;
+            speed = 100;
         }
     
         if (isDeleting) {
@@ -350,6 +350,3 @@
     </script>
 </body>
 </html>
-
-
-
